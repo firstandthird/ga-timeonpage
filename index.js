@@ -7,16 +7,8 @@ let hasTracked = false;
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
     duration += new Date().getTime() - start;
-
-    if (GATrack.debug) {
-      navigator.sendBeacon('/_beacon', JSON.stringify({ state: 'hidden', duration, start }));
-    }
   } else {
     start = new Date().getTime();
-
-    if (GATrack.debug) {
-      navigator.sendBeacon('/_beacon', JSON.stringify({ state: 'visible', duration, start }));
-    }
   }
 });
 
@@ -40,13 +32,8 @@ const track = function() {
     transport: 'beacon'
   };
 
-  window.ga('send', 'event', data);
   GATrack.send('event', data);
   hasTracked = true;
-
-  if (GATrack.debug) {
-    navigator.sendBeacon('/_beacon', JSON.stringify(data));
-  }
 };
 
 window.addEventListener('beforeunload', track);
