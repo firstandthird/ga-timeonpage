@@ -56,6 +56,6 @@
   },
   "homepage": "https://github.com/firstandthird/ga-timeonpage#readme",
   "dependencies": {
-    "ga-track": "^1.6.2"
+    "ga-track": "^1.7.0"
   }
 }

@@ -13,7 +13,7 @@ document.addEventListener('visibilitychange', () => {
 });
 
 const track = function() {
-  if (hasTracked) {
+  if (hasTracked || !GATrack.isEnabled) {
     return;
   }
 
@@ -24,15 +24,32 @@ const track = function() {
     return;
   }
 
-  const data = {
-    eventCategory: 'ga-track',
-    eventAction: 'timeonsite',
-    eventLabel: 'seconds',
-    eventValue: Math.round(tos),
-    transport: 'beacon'
-  };
+  const args = ['event'];
+  let data = {};
 
-  GATrack.send('event', data);
+  if (GATrack.isGTag) {
+    data = {
+      name: 'timeonsite',
+      value: Math.round(tos),
+      event_category: 'ga-track',
+      event_label: 'seconds'
+    };
+
+    args.push('timeonsite');
+  } else if (GATrack.isGA) {
+    data = {
+      eventCategory: 'ga-track',
+      eventAction: 'timeonsite',
+      eventLabel: 'seconds',
+      eventValue: Math.round(tos),
+      transport: 'beacon'
+    };
+  }
+
+  args.push(data);
+
+  GATrack.send.apply(null, args);
+
   hasTracked = true;
 };
 
