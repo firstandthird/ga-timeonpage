@@ -1,0 +1,61 @@
+{
+  "name": "ga-timeonpage",
+  "version": "1.0.0",
+  "description": "Mesures time on page and sends it to Google Analytics",
+  "main": "index.js",
+  "scripts": {
+    "start": "scriptkit",
+    "build": "scriptkit build",
+    "dev": "scriptkit dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "scriptkit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firstandthird/ga-timeonpage.git"
+  },
+  "keywords": [
+    "browser",
+    "ga",
+    "analytics"
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "extends": "firstandthird"
+  },
+  "scriptkit": {
+    "test": {
+      "enabled": false
+    },
+    "files": {
+      "dist/ga-timeonpage.js": "index.js"
+    },
+    "scripts": {
+      "babel": {
+        "exclude": [
+          "node_modules/tape-rollup/*"
+        ]
+      }
+    }
+  },
+  "devDependencies": {
+    "eslint-config-firstandthird": "^4.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "phantomjs-prebuilt": "^2.1.16",
+    "scriptkit": "^1.0.0",
+    "tap-spec": "^5.0.0",
+    "tape-rollup": "^4.6.4",
+    "tape-run": "^4.0.0"
+  },
+  "author": "First+Third",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/firstandthird/ga-timeonpage/issues"
+  },
+  "homepage": "https://github.com/firstandthird/ga-timeonpage#readme",
+  "dependencies": {
+    "ga-track": "^1.7.0"
+  }
+}
