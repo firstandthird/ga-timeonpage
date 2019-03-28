@@ -1,8 +1,15 @@
 import GATrack from 'ga-track';
+import { on, ready } from 'domassist';
 
-let start = new Date().getTime();
-let duration = 0;
-let hasTracked = false;
+let start;
+let duration;
+let hasTracked;
+
+const initialize = () => {
+  start = new Date().getTime();
+  duration = 0;
+  hasTracked = false;
+};
 
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
@@ -53,5 +60,15 @@ const track = function() {
   hasTracked = true;
 };
 
-window.addEventListener('beforeunload', track);
-window.addEventListener('pagehide', track);
+initialize();
+
+ready(() => {
+  window.addEventListener('beforeunload', track);
+  window.addEventListener('pagehide', track);
+
+  // Force send for SPAs
+  on(document.body, 'timeonsite:send', () => {
+    track();
+    initialize();
+  });
+});
