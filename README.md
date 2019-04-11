@@ -1,15 +1,19 @@
 # Google Analytics Time On Page (ga-timeonpage)
 
+![npm](https://img.shields.io/npm/v/ga-timeonpage.svg)
+
 Tracks time on page for Google Analytics.
 
 > This library uses [ga-track](https://github.com/firstandthird/ga-track) and needs [Google Analytics](https://developers.google.com/analytics/devguides/collection/analyticsjs/) to be set up in order to work.
 
 ## Installation
+
 ```sh
 npm install ga-timeonpage
 ```
 
 ## Usage
+
 ```js
 import 'ga-timeonpage'
 ```
@@ -18,7 +22,7 @@ import 'ga-timeonpage'
 
 ### MIT License
 
-Copyright (c) 2018 First+Third
+Copyright (c) 2019 First+Third
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
