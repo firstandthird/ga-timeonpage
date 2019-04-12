@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "description": "Mesures time on page and sends it to Google Analytics",
   "main": "index.js",
+  "module": "dist/ga-timeonpage.esm.js",
   "scripts": {
     "start": "scriptkit",
     "build": "scriptkit build",
@@ -31,23 +32,12 @@
     },
     "files": {
       "dist/ga-timeonpage.js": "index.js"
-    },
-    "scripts": {
-      "babel": {
-        "exclude": [
-          "node_modules/tape-rollup/*"
-        ]
-      }
     }
   },
   "devDependencies": {
     "eslint-config-firstandthird": "^4.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "phantomjs-prebuilt": "^2.1.16",
-    "scriptkit": "^1.0.0",
-    "tap-spec": "^5.0.0",
-    "tape-rollup": "^4.6.4",
-    "tape-run": "^4.0.0"
+    "eslint-plugin-import": "^2.16.0",
+    "scriptkit": "^2.0.3"
   },
   "author": "First+Third",
   "license": "MIT",
@@ -56,7 +46,7 @@
   },
   "homepage": "https://github.com/firstandthird/ga-timeonpage#readme",
   "dependencies": {
-    "ga-track": "^1.7.0",
-    "domassist": "^1.13.1"
+    "ga-track": "^2.0.0",
+    "domassist": "^2.0.2"
   }
 }
